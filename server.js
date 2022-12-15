@@ -5,9 +5,11 @@ const tasks = require('./routes/tasks');
 require('dotenv').config()
 const notFound = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler')
+const cors = require('cors')
 
 app.use(express.static('./public'))
 app.use(express.json())
+app.use(cors())
 
 app.use('/api/v1/tasks', tasks)
 app.use(notFound)
