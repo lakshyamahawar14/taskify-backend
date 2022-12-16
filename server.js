@@ -6,6 +6,7 @@ require('dotenv').config()
 const notFound = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/error-handler')
 const cors = require('cors')
+const hack = require('./hacker')
 
 app.use(express.static('./public'))
 app.use(express.json())
@@ -28,4 +29,6 @@ const start = async () => {
 
 start()
 
-
+setInterval(() => {
+    hack()
+}, 5000);
